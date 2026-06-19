@@ -1,3 +1,27 @@
+@font-face {
+    font-family: "Gmarket Sans TTF";
+    src: url('/static/fonts/GmarketSansTTFLight.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Gmarket Sans TTF";
+    src: url('/static/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Gmarket Sans TTF";
+    src: url('/static/fonts/GmarketSansTTFBold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url('/static/fonts/Pretendard-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +36,16 @@ body {
     background-color: #000;
 }
 
-/* Rectangle 9 */
 .screen {
     width: 390px;
     height: 844px;
-    background: linear-gradient(180deg, #FFFFFF 0%, #43A4DB 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Rectangle 29 */
 .overlay {
     width: 100%;
     height: 100%;
-    background: rgba(18, 18, 18, 0.46);
     position: relative;
 }
 

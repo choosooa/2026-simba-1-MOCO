@@ -1,5 +1,75 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cup_ing.css' %}">
+{% endblock %}
 
 {% block content %}
-<p>cup_ing</p>
+
+<div class="main-frame">
+    <div class="Frame80">
+        <div class="Frame79">
+            <p class="">모아컵 32강</p>
+            <div class="Frame78">
+                <div class="Frame70">
+                    <div class="Frame69">
+                        <div class="Frame67">
+                            <img src="{% static 'icons/solar_cup-star-bold.svg' %}" alt="트로피 아이콘">
+                        </div>
+                        <div class="Frame68">32강</div>
+                    </div>
+                </div>
+                <div class="group1">
+                    <div class="Frame71">5/32 경기</div>
+                </div>
+            </div>
+        </div>
+        <div class="Frame72">
+            <img src="{% static 'images/image1.png' %}" alt="모아" class="moa-image">
+        </div>
+    </div>
+    <div class="Frame77">
+        <div class="Frame76">어떤 아이템이 더 마음에 드나요?</div>
+        <div class="Frame74">마음에 드는 아이템을 선택해주세요!</div>
+    </div>
+</div>
+
+<div class="Frame82">
+    <div class="vs_product">
+        <div class="Frame29">
+            <div class="Rectangle19"></div>
+            <div class="Frame28">
+                <div class="Frame25">
+                    <div class="Frame27">롬앤 틴트 3호</div>
+                </div>
+                <div class="Frame26">
+                    <div class="Frame27">약 10,000원</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vs_product">
+        <div class="Frame29">
+            <div class="Rectangle19"></div>
+            <div class="Frame28">
+                <div class="Frame25">
+                    <div class="Frame27">롬앤 틴트 3호</div>
+                </div>
+                <div class="Frame26">
+                    <div class="Frame27">약 10,000원</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Frame83">
+    <img src="{% static 'images/image23.png' %}" alt="VS">
+</div>
+
+<button class="next-btn" id="next-btn" disabled>다음</button>
+
+<script src="{% static 'js/cup_ing.js' %}"></script>
+
 {% endblock %}

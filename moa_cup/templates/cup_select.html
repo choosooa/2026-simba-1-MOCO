@@ -6,14 +6,31 @@
 {% endblock %}
 
 {% block content %}
-<p class="head_text">몇 강으로, 어떤 카테고리로<br>대결할지 선택해요!</p>
+<div class="mainframe">
+    <p class="head_text">몇 강으로, 어떤 카테고리로<br>대결할지 선택해요!</p>
 
-<p class="choice_text">몇 강으로 진행할까요?</p>
-<div class="round_grid" data-check-icon="{% static 'icons/mingcute_check-fill.svg' %}">
-    <button class="round_btn">16강</button>
-    <button class="round_btn">32강</button>
-    <button class="round_btn">64강</button>
-    <button class="round_btn">랜덤</button>
+    <div class="subframe1">
+        <div class="subframe2">
+            <p class="category_text">어떤 카테고리로 진행할까요?</p>
+            <div class="category_grid">
+                <button class="category_btn">전체</button>
+                <button class="category_btn">패션</button>
+                <button class="category_btn">뷰티</button>
+                <button class="category_btn">라이프</button>
+                <button class="category_btn">기타</button>
+            </div>
+        </div>
+
+        <div class="subframe3">
+            <p class="choice_text">몇 강으로 진행할까요?</p>
+            <div class="round_grid">
+                <button class="round_btn">16강</button>
+                <button class="round_btn">32강</button>
+                <button class="round_btn">64강</button>
+                <button class="round_btn">랜덤</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="image2"></div>
@@ -23,16 +40,7 @@
 <div class="image7"></div>
 <div class="image8"></div>
 
-<p class="category_text">어떤 카테고리로 진행할까요?</p>
-<div class="category_grid">
-    <button class="category_btn">전체</button>
-    <button class="category_btn">패션</button>
-    <button class="category_btn">뷰티</button>
-    <button class="category_btn">라이프</button>
-    <button class="category_btn">기타</button>
-</div>
-
-<a href="{% url 'cup_ing' %}" class="start_btn">모아컵 시작</a>
+<a href="{% url 'cup_ing' %}" class="start_btn">시작하기</a>
 
 <script src="{% static 'js/cup_select.js' %}"></script>
 {% endblock %}

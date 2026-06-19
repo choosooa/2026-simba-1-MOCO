@@ -1,0 +1,356 @@
+.overlay {
+    background: transparent;
+}
+
+.screen {
+    background: linear-gradient(180deg, #43A4DB 0%, #FFF 140.58%);
+}
+
+/* 타이틀 영역 */
+.main-frame {
+display: flex;
+width: 271px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.Frame80 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 3px;
+align-self: stretch;
+}
+
+.Frame79 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+}
+
+.Frame78 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+}
+
+.Frame70 {
+display: flex;
+width: 62px;
+height: 23px;
+padding: 4px 8px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+
+border-radius: 100px;
+border: 1px solid #43A4DB;
+background: rgba(62, 154, 205, 0.80);
+box-shadow: 0 1px 5px 0 #96F1FF;
+}
+
+.Frame69 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 3px;
+flex: 1 0 0;
+align-self: stretch;
+}
+
+.Frame67 {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.Frame68 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+.group1 {
+height: 18px;
+align-self: stretch;
+}
+
+.Frame71 {
+display: flex;
+width: 271px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+.Frame72 {
+display: flex;
+padding: 10px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+}
+
+.Frame77 {
+display: flex;
+height: 69px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1px;
+align-self: stretch;
+}
+
+.Frame76 {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+align-self: stretch;
+}
+
+.Frame74 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+}
+
+.Frame82 {
+display: inline-flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
+
+.Frame83 {
+display: inline-flex;
+align-items: center;
+gap: 23px;
+}
+
+
+
+.title-text {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(150, 241, 255, 0.80);
+    font-family: "Gmarket Sans TTF";
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.title-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.round-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.50);
+
+    color: #FFF;
+    font-family: "Gmarket Sans TTF";
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.progress-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Gmarket Sans TTF";
+    font-size: 12px;
+    font-weight: 300;
+}
+
+/* 마스코트 */
+.mascot-area {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+}
+
+.mascot-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 20px rgba(150, 241, 255, 0.80));
+}
+
+/* 질문 영역 */
+.question-area {
+    position: absolute;
+    top: 252px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 300px;
+}
+
+.question-main {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(150, 241, 255, 0.80);
+    font-family: "Gmarket Sans TTF";
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.question-sub {
+    color: rgba(255, 255, 255, 0.80);
+    text-align: center;
+    font-family: "Gmarket Sans TTF";
+    font-size: 12px;
+    font-weight: 300;
+}
+
+/* VS */
+.vs-text {
+    position: absolute;
+    top: 328px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(150, 241, 255, 0.80);
+    font-family: "Gmarket Sans TTF";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* 카드 영역 */
+.card-area {
+    position: absolute;
+    top: 355px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-img-wrap {
+    width: 140px;
+    height: 175px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px solid rgba(255, 255, 255, 0.70);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.item-img-wrap:hover {
+    box-shadow: 0 8px 24px rgba(150, 241, 255, 0.50);
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-name {
+    color: #2c6e9b;
+    font-family: "Gmarket Sans TTF";
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.item-price {
+    color: #5a8fad;
+    font-family: "Gmarket Sans TTF";
+    font-size: 11px;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* 카드 선택 상태 */
+.item-card.selected .item-img-wrap {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(150, 241, 255, 0.70), 0 0 0 2px rgba(150, 241, 255, 0.50);
+}
+
+.item-card.unselected .item-img-wrap {
+    opacity: 0.55;
+}
+
+/* 다음 버튼 */
+.next-btn {
+    position: absolute;
+    bottom: 44px;
+    left: 42px;
+    width: 307px;
+    height: 69px;
+
+    border: none;
+    border-radius: 56px;
+    background: rgba(180, 200, 210, 0.50);
+    box-shadow: 0 4px 10px 0 rgba(255,255,255,0.20), 0 4px 4px 0 rgba(0,0,0,0.10);
+    cursor: not-allowed;
+
+    color: rgba(255, 255, 255, 0.60);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: normal;
+
+    transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.next-btn:not(:disabled) {
+    background: linear-gradient(180deg, rgba(150, 241, 255, 0.85) 0%, rgba(62, 154, 205, 0.85) 100%);
+    box-shadow: 0 4px 10px 0 #FFF, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    cursor: pointer;
+}
+
+.next-btn:not(:disabled):hover {
+    background: linear-gradient(180deg, rgba(131, 229, 244, 0.85) 0%, rgba(43, 140, 192, 0.85) 100%);
+    box-shadow: 0 4px 10px 0 #FFF, 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.next-btn:not(:disabled):active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.13) 100%), linear-gradient(180deg, rgba(131, 229, 244, 0.85) 0%, rgba(43, 140, 192, 0.85) 100%);
+    box-shadow: 0 2px 10px 0 rgba(255, 255, 255, 0.60), 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+}
