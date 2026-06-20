@@ -30,7 +30,7 @@ class Tournament(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="IN_PROGRESS")
     
     #현재 진행 중인 라운드 
-    currnent_round = models.PositiveIntegerField( )
+    current_round = models.PositiveIntegerField()
     #최종 우승 아이템 
     winner_item = models.ForeignKey(Item, null=True, blank=True, on_delete=models.SET_NULL)
     
@@ -52,11 +52,11 @@ class TournamentMatch(models.Model):
     match_no = models.PositiveIntegerField()
     
     #왼쪽 후보 아이템
-    left_item = models.ForeignKey(Item, null=False, blank=False, on_delete=models.CASCADE, related_name="left_matches")
+    left_item = models.ForeignKey(Item, null=False, blank=False, on_delete=models.PROTECT, related_name="left_matches")
     #오른쪽 후보 아이템 
-    right_item = models.ForeignKey(Item, null=False, blank=False, on_delete=models.CASCADE, related_name="right_matches")
+    right_item = models.ForeignKey(Item, null=False, blank=False, on_delete=models.PROTECT, related_name="right_matches")
     #해당 매치의 승리 아이템 
-    winner_item = models.ForeignKey(Item, null=True, blank=True, on_delete=models.CASCADE, related_name="won_matches")
+    winner_item = models.ForeignKey(Item, null=True, blank=True, on_delete=models.PROTECT, related_name="won_matches")
     
     #생성 시간
     created_at = models.DateTimeField(auto_now_add=True)
