@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cup_share.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="Frame134">
+    <div class="Frame133">
+        <div class="Frame123">
+            <p class="moa_label">모아컵</p>
+            <div class="Frame122">
+                <p class="sharer_name">{{ sharer.username }}님의</p>
+                <p class="share_title">모아컵을 공유받았어요!</p>
+            </div>
+        </div>
+        <div class="moa_img"></div>
+    </div>
+
+    <div class="product_content">
+        <div class="Frame8">
+            <div class="Frame7">
+                <div class="Rectangle34"></div>
+            </div>
+            <div class="Frame5">
+                <div class="Frame3">
+                    <div class="Frame1">{{ winner_item.product_name }}</div>
+                    <div class="Frame2">₩ {{ winner_item.price|intcomma }}</div>
+                </div>
+                <img src="{% static 'images/image10.png' %}" alt="트로피" class="image10">
+            </div>
+        </div>
+    </div>
+
+    <p class="challenge_text">이 모아컵에 도전해볼까요?</p>
+
+    <div class="Frame135">
+        <div class="line"></div>
+    </div>
+
+    <div class="moa_talk">
+        <div class="Frame37">
+            <div class="Frame30">
+                <img src="{% static 'images/image11.png' %}" alt="말풍선" class="image11">
+            </div>
+            <div class="Frame36">
+                <div class="Frame31">모아의 한마디</div>
+                <div class="Frame32">로그인하면 나만의 보관함에서<br>모아컵을 시작할 수 있어요!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'cup_share_start' share_token=tournament.share_token %}" class="start_btn">시작하기</a>
+
+{% endblock %}

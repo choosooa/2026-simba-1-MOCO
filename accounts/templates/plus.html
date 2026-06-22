@@ -1,0 +1,61 @@
+{% extends 'plus_base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/plus.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="frame_130">
+    <div class="what">
+    어떤 아이템인가요?
+    </div> 
+    <div class="choose">
+    카테고리를 하나만 선택해주세요(필수)
+    </div>
+    <div class="blank">
+    
+    </div>
+    <div class="frame_127">
+        <div class="category">
+            <div class="frame_126">
+                <img src="{% static 'images/image25.png' %}" class="icon_1">
+                <div class="font_1">
+                    패션
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="frame_126">
+                <img src="{% static 'images/image26.png' %}" class="icon_1">
+                <div class="font_1">
+                    뷰티
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="frame_126">
+                <img src="{% static 'images/image27.png' %}" class="icon_1">
+                <div class="font_1">
+                    라이프
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="frame_126">
+                <img src="{% static 'images/image28.png' %}" class="icon_1">
+                <div class="font_1">
+                    기타
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="frame_126">
+               <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
+                <path d="M23.2172 6.16687C23.2172 4.11937 21.5475 2.4375 19.4878 2.4375C17.4281 2.4375 15.7463 4.11937 15.7584 6.16687V15.7584H6.16687C4.11937 15.7584 2.4375 17.4281 2.4375 19.4878C2.4375 21.5353 4.11937 23.2172 6.16687 23.2172H15.7584V32.7966C15.7584 34.8441 17.4281 36.5259 19.4878 36.5259C21.5353 36.5259 23.2172 34.8563 23.2172 32.7966V23.2172H32.7966C34.8441 23.2172 36.5259 21.5475 36.5259 19.4878C36.5259 17.4403 34.8563 15.7584 32.7966 15.7584H23.2172V6.16687Z" fill="#A4A8AB"/>
+               </svg>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

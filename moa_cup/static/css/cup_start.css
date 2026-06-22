@@ -1,9 +1,9 @@
 .screen {
-    background: linear-gradient(180deg, #FFF 0%, #43A4DB 100%);
+background: linear-gradient(180deg, #FFF 0%, #43A4DB 100%);
 }
 
 .overlay {
-    background: rgba(18, 18, 18, 0.40);
+background: rgba(18, 18, 18, 0.40);
 }
 
 .head_text {

@@ -1,5 +1,191 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cup_result.css' %}">
+{% endblock %}
 
 {% block content %}
-<p>cup_result</p>
+
+{% if is_shared %}
+<a href="#" class="Frame187">
+    <div class="Frame186">
+        <img src="{% static 'icons/mdi_lock-outline.svg' %}" alt="로그인" class="lock_icon">
+        <span class="login_text">로그인</span>
+        <img src="{% static 'icons/line-md_chevron-up.svg' %}" alt="화살표" class="chevron_icon">
+    </div>
+</a>
+{% endif %}
+
+<div class="Frame134{% if is_shared %} Frame134_shared{% endif %}">
+    <div class="Frame133">
+        <div class="Frame123">
+            <p class="result_text">모아컵 결과</p>
+            <div class="Frame122">
+                <p class="your_choice">당신의 최애 아이템은</p>
+                <p class="product_name">나이키 덩크 로우</p>
+            </div>
+        </div>
+        <div class="moa_img"></div>
+    </div>
+
+    {% if is_shared %}
+    <div class="shared_cards">
+        <div class="product_content_shared">
+            <div class="Frame8_shared">
+                <div class="Frame7_shared">
+                    <div class="Rectangle34_shared"></div>
+                </div>
+                <div class="Frame5_shared">
+                    <div class="Frame3_shared">
+                        <div class="Frame1_shared">{{ sharer.username }}의 우승 아이템</div>
+                        <div class="Frame4_shared">{{ sharer_winner.product_name }}</div>
+                        <div class="Frame2_shared">₩ {{ sharer_winner.price|intcomma }}</div>
+                    </div>
+                    <img src="{% static 'images/image10.png' %}" alt="트로피" class="image10_shared">
+                </div>
+            </div>
+        </div>
+
+        <div class="product_content_shared">
+            <div class="Frame8_shared">
+                <div class="Frame7_shared">
+                    <div class="Rectangle34_shared"></div>
+                </div>
+                <div class="Frame5_shared">
+                    <div class="Frame3_shared">
+                        <div class="Frame1_shared">내 우승 아이템</div>
+                        <div class="Frame4_shared">나이키 덩크 로우</div>
+                        <div class="Frame2_shared">₩ 139,000</div>
+                    </div>
+                    <img src="{% static 'images/image10.png' %}" alt="트로피" class="image10_shared">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Frame135_2">
+        <div class="line_2"></div>
+    </div>
+
+    <div class="moa_talk">
+        <div class="Frame37">
+            <div class="Frame30">
+                <img src="{% static 'images/image11.png' %}" alt="말풍선" class="image11">
+            </div>
+            <div class="Frame36">
+                <div class="Frame31">모아의 한마디</div>
+                <div class="Frame32">로그인하면 나만의 보관함에서<br>모아컵을 시작할 수 있어요!</div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="product_content">
+        <div class="Frame8">
+            <div class="Frame7">
+                <div class="Rectangle34"></div>
+            </div>
+            <div class="Frame5">
+                <div class="Frame3">
+                    <div class="Frame1">나이키 덩크 로우</div>
+                    <div class="Frame2">₩ 139,000</div>
+                </div>
+                <img src="{% static 'images/image10.png' %}" alt="트로피" class="image10">
+            </div>
+        </div>
+    </div>
+    <div class="Frame132">
+        <a href="{% url 'cup_link' %}" class="share_btn">공유하기</a>
+        <a href="{% url 'cup_select' %}" class="retry_btn">모아컵 다시하기</a>
+    </div>
+    {% endif %}
+</div>
+
+{% if not is_shared %}
+<div class="Frame135">
+    <div class="line"></div>
+    탈락한 아이템은 정리해보세요
+    <div class="line"></div>
+</div>
+
+<div class="Frame121">
+    <div class="product_content_2">
+        <div class="Frame8_2">
+            <div class="Frame7_2">
+                <div class="Rectangle34_2">
+                </div>
+            </div>
+            <div class="Frame5_2">
+                <div class="Frame3_2">
+                    <div class="Frame1_2">나이키 덩크 로우</div>
+                    <div class="Frame2_2">₩ 139,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product_content_2">
+        <div class="Frame8_2">
+            <div class="Frame7_2">
+                <div class="Rectangle34_2">
+                </div>
+            </div>
+            <div class="Frame5_2">
+                <div class="Frame3_2">
+                    <div class="Frame1_2">나이키 덩크 로우</div>
+                    <div class="Frame2_2">₩ 139,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product_content_2">
+        <div class="Frame8_2">
+            <div class="Frame7_2">
+                <div class="Rectangle34_2">
+                </div>
+            </div>
+            <div class="Frame5_2">
+                <div class="Frame3_2">
+                    <div class="Frame1_2">나이키 덩크 로우</div>
+                    <div class="Frame2_2">₩ 139,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product_content_2">
+        <div class="Frame8_2">
+            <div class="Frame7_2">
+                <div class="Rectangle34_2">
+                </div>
+            </div>
+            <div class="Frame5_2">
+                <div class="Frame3_2">
+                    <div class="Frame1_2">나이키 덩크 로우</div>
+                    <div class="Frame2_2">₩ 139,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product_content_2">
+        <div class="Frame8_2">
+            <div class="Frame7_2">
+                <div class="Rectangle34_2">
+                </div>
+            </div>
+            <div class="Frame5_2">
+                <div class="Frame3_2">
+                    <div class="Frame1_2">나이키 덩크 로우</div>
+                    <div class="Frame2_2">₩ 139,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}

@@ -1,0 +1,133 @@
+.btn{
+    border-radius: 56px;
+background: var(--b_non, linear-gradient(180deg, #FFF 0%, #818181 100%));
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 10px 0 #FFF;
+}
+
+.frame_148{
+    display: flex;
+width: 327px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+}
+
+.frame_143{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+}
+
+.font_2{
+    display: flex;
+height: 24px;
+flex-direction: column;
+justify-content: flex-end;
+align-self: stretch;
+color: #676767;
+font-family: Pretendard;
+font-size: 15px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.frame_142{
+ display: flex;
+height: 55px;
+padding-right: 14px;
+justify-content: flex-end;
+align-items: center;
+gap: 195px;
+align-self: stretch;
+border-radius: 12px;
+border: 1px solid #D3D3D3;
+background: #FFF;
+}
+
+.frame_149{
+    display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.icon_1{
+    display: flex;
+width: 39px;
+height: 41px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+aspect-ratio: 39/41;
+}
+
+.fashion{
+    color: #676767;
+font-family: Pretendard;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.frame_147{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+align-self: stretch;
+}
+
+.frame_144{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+}
+
+.frame_141
+{
+    display: flex;
+height: 45px;
+padding: 0 15px;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+border-radius: 12px;
+border: 1px solid #D3D3D3;
+background: #FFF;
+}
+
+.font_3{
+    color: #C8C8C8;
+font-family: Pretendard;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.pt{
+    width: 21px;
+height: 21px;
+aspect-ratio: 1/1;
+}
+
+.empty{
+    display: flex;
+width: 231px;
+height: 15px;
+flex-direction: column;
+justify-content: flex-end;
+color: var(--, #F36262);
+font-family: Pretendard;
+font-size: 10px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}

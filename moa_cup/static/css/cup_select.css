@@ -1,9 +1,9 @@
 .screen {
-    background: linear-gradient(180deg, #FFF 0%, #43A4DB 100%);
+background: linear-gradient(180deg, #FFF 0%, #43A4DB 100%);
 }
 
 .overlay {
-    background: rgba(18, 18, 18, 0.40);
+background: rgba(18, 18, 18, 0.40);
 }
 
 .mainframe {
@@ -93,7 +93,6 @@ font-family: "Gmarket Sans TTF";
 font-size: 20px;
 font-style: normal;
 font-weight: 500;
-line-height: 30px;
 
 position: relative;
 }
@@ -146,7 +145,6 @@ font-family: "Gmarket Sans TTF";
 font-size: 13px;
 font-style: normal;
 font-weight: 500;
-line-height: 19.655px;
 
 position: relative;
 }

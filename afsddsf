@@ -1,0 +1,25 @@
+[33md408ddc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/login[m[33m, [m[1;32mmain[m[33m)[m plus_info
+[33macd3cc7[m[33m ([m[1;31morigin/main[m[33m)[m feat:이승원
+[33m6d35a17[m[33m ([m[1;31mupstream/main[m[33m)[m feat/#5-moa_cup-moa_ing 구현
+[33mef17294[m Merge pull request #9 from choosooa/feat/3-model
+[33m507c0ab[m Merge pull request #8 from junhnno/feat/4-user-category-model
+[33m68c1bec[m feat/#4-user-category-model
+[33m2e8ffb8[m feat/3-model tournamentshare,scrap 수정본
+[33m446f5ad[m feat/3-model 최종본
+[33md6f3174[m feat/#3-items&tournament_models.py 최종본
+[33m407bd65[m feat/#5-moa_ing 구현
+[33mbc1ea12[m feat/#3-items/tournament-model 수정본
+[33m4f16ea4[m feat/#4-user-category-model
+[33me9d4998[m feat/#3-items/tournament-model 생성
+[33m75fb176[m Merge branch 'LikeLion-at-DGU:main' into main
+[33m36f8b1a[m chore: Fix issue template frontmatter
+[33m1b44c43[m chore: Add frontmatter to issue template
+[33m7f1243d[m chore: Add issue template
+[33m1aaf720[m Add apps: accounts, categories, items, tournaments / Update settings.py
+[33m0d158f8[m Add .gitignore, remove db.sqlite3 tracking
+[33m2c9166e[m Merge pull request #2 from hyunaway/feat/#2-hyunwoo
+[33md86b5c3[m #2- 토너먼트 디테일 수정중
+[33m1fed85f[m Rename project from PIGPOT to MOCO
+[33mc9fc9c7[m #1-시작 및 설정화면 구현
+[33m96129bb[m Update issue templates
+[33m353bf4c[m Initial commit

@@ -1,0 +1,320 @@
+.screen {
+background: linear-gradient(180deg, #FFF 0%, #43A4DB 100%);
+height: 844px;
+}
+
+.overlay {
+background: transparent;
+}
+
+.Frame134 {
+position: absolute;
+top: 85px;
+left: 50%;
+transform: translateX(-50%);
+
+display: flex;
+width: 332px;
+height: 538.223px;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+}
+
+.Frame133 {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 9px;
+align-self: stretch;
+}
+
+.Frame123 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+align-self: stretch;
+}
+
+.moa_label {
+display: flex;
+height: 41px;
+flex-direction: column;
+justify-content: center;
+align-self: stretch;
+
+color: #858585;
+text-align: center;
+text-shadow: 0 4px 20px rgba(150, 241, 255, 0.80);
+font-family: "Gmarket Sans TTF";
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 166.667% */
+}
+
+.Frame122 {
+display: flex;
+flex-direction: column;
+align-items: center;
+align-self: stretch;
+}
+
+.sharer_name {
+display: flex;
+height: 55px;
+flex-direction: column;
+justify-content: center;
+align-self: stretch;
+
+color: #000;
+text-align: center;
+text-shadow: 0 4px 20px rgba(150, 241, 255, 0.40);
+font-family: "Gmarket Sans TTF";
+font-size: 25px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 120% */
+}
+
+.share_title {
+align-self: stretch;
+
+color: #43A4DB;
+text-align: center;
+text-shadow: 0 4px 20px rgba(150, 241, 255, 0.80);
+font-family: "Gmarket Sans TTF";
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 107.143% */
+}
+
+.moa_img {
+width: 144px;
+height: 122px;
+aspect-ratio: 72/61;
+
+background: url('/static/images/image1.png') center / contain no-repeat;
+filter: drop-shadow(0 4px 30px #96F1FF);
+}
+
+/* 우승 아이템 카드 */
+.product_content {
+display: flex;
+width: 314px;
+height: 91.223px;
+padding: 12.483px 15.364px;
+flex-direction: column;
+align-items: flex-start;
+gap: 9.602px;
+flex-shrink: 0;
+
+border-radius: 19.205px;
+background: #FFF;
+box-shadow: 0 -3.759px 16.298px 0 rgba(0, 0, 0, 0.10);
+}
+
+.Frame8 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 14.404px;
+flex: 1 0 0;
+align-self: stretch;
+}
+
+.Frame7 {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 9.602px;
+}
+
+.Rectangle34 {
+width: 72.018px;
+height: 67.217px;
+
+border-radius: 19.205px;
+border: 0.96px solid #D3D3D3;
+}
+
+.Frame5 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 46.092px;
+flex: 1 0 0;
+align-self: stretch;
+}
+
+.Frame3 {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 5.761px;
+}
+
+.Frame1 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 9.602px;
+align-self: stretch;
+
+color: #000;
+font-family: Pretendard;
+font-size: 17.284px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.Frame2 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 9.602px;
+
+color: #676767;
+font-family: Pretendard;
+font-size: 15.364px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.image10 {
+height: 35.163px;
+flex: 1 0 0;
+aspect-ratio: 37.76/35.16;
+}
+
+/* 도전 텍스트 */
+.challenge_text {
+color: #FFF;
+text-align: center;
+text-shadow: 0 1px 10px rgba(150, 241, 255, 0.80);
+font-family: Pretendard;
+font-size: 19px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.Frame135 {
+display: flex;
+width: 331px;
+height: 12px;
+justify-content: center;
+align-items: center;
+gap: 6px;
+flex-shrink: 0;
+}
+
+.line {
+width: 308px;
+height: 1px;
+
+background: rgba(255, 255, 255, 0.60);
+}
+
+/* 모아의 한마디 */
+.moa_talk {
+display: flex;
+width: 314px;
+height: 98px;
+padding: 11px 13px 10px 13px;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 10px;
+flex-shrink: 0;
+
+border-radius: 20px;
+border: 1px solid #C8C8C8;
+background: #FFF;
+box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.60);
+}
+
+.Frame37 {
+display: flex;
+width: 288px;
+align-items: flex-start;
+gap: 10px;
+}
+
+.Frame30 {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.image11 {
+width: 46px;
+height: 50px;
+aspect-ratio: 46/50;
+}
+
+.Frame36 {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 7px;
+flex: 1 0 0;
+align-self: stretch;
+}
+
+.Frame31 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+color: #43A4DB;
+font-family: Pretendard;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.Frame32 {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+color: #676767;
+font-family: Pretendard;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 23px; /* 164.286% */
+}
+
+/* 시작하기 버튼 */
+.start_btn {
+position: absolute;
+bottom: 44px;
+left: 50%;
+transform: translateX(-50%);
+
+display: flex;
+width: 307px;
+height: 69px;
+justify-content: center;
+align-items: center;
+
+border-radius: 56px;
+background: var(--b_active, linear-gradient(180deg, rgba(131, 229, 244, 0.85) 0%, rgba(43, 140, 192, 0.85) 100%));
+box-shadow: 0 3px 10px 0 rgba(255, 255, 255, 0.80), 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+
+color: #FFF;
+text-align: center;
+font-family: Pretendard;
+font-size: 23px;
+font-weight: 700;
+text-decoration: none;
+}

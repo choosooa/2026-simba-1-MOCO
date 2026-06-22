@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cup_link.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="Frame134">
+    <div class="Frame133">
+        <div class="moa_img"></div>
+        <div class="Frame123">
+            <div class="Frame122">모아컵 결과 공유</div>
+            친구에게 링크를 보내고<br>같은 모아컵을 진행해보세요!
+        </div>
+    </div>
+</div>
+
+<div class="Frame185">
+    <div class="Frame142">
+        <p class="share_text">공유 링크</p>
+        <div class="Frame141">
+            <p class="link_text">https://this239goldkflcllsjsll/../f.ffsdjkfljjdj . fjkdjfldjjfkdk1245</p>
+            <img src="{% static 'icons/iconamoon_copy.svg' %}" alt="복사" class="copy_icon">
+        </div>
+    </div>
+    <button class="copy_btn">링크 복사</button>
+</div>
+
+<a href="{% url 'cup_share_preview' %}" class="preview_btn">[ 개발 ] 공유 화면 미리보기</a>
+
+<script src="{% static 'js/cup_link.js' %}"></script>
+{% endblock %}

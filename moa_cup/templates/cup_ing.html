@@ -75,8 +75,23 @@
     <div class="vs-img"></div>
 </div>
 
-<button class="next-btn" id="next-btn" disabled>다음</button>
+<button class="next-btn" id="next-btn" data-url="{% url 'cup_result' %}" disabled>다음</button>
+
+<div class="Frame158">
+    <div class="Frame157">
+        <img src="{% static 'icons/jam_alert-f.svg' %}" alt="경고">
+        <div class="Frame156">
+            <div class="Frame155">
+                <p class="end_title">모아컵을 종료하시겠어요?</p>
+                <p class="end_text">진행 중인 내용은 저장되지 않으며,<br>처음부터 다시 시작해야 합니다.</p>
+            </div>
+            <div class="Frame154">
+                <button class="modal-cancel" id="modal-cancel">취소</button>
+                <button class="modal-confirm" id="modal-confirm" data-url="{% url 'cup_select' %}">종료</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="{% static 'js/cup_ing.js' %}"></script>
-
 {% endblock %}
