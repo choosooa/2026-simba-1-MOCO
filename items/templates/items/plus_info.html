@@ -9,10 +9,12 @@
 <form method="POST" action="{% url 'items:create' %}" enctype="multipart/form-data">
 {% csrf_token %}
 
+<input type="file" id="imageInput" name="image" accept="image/*" required style="display:none;">
+
 <div class="frame_148">
     <div class="frame_143">
         <div class="font_2">카테고리</div>
-        <div class="frame_142"> 
+        <div class="frame_142">
             <select name="category" class="frame_149">
                 {% for cat in categories %}
                 <option value="{{ cat.id }}">{{ cat.name }}</option>
@@ -29,7 +31,6 @@
             </div>
         </div>
 
-
         <div class="frame_144">
             <div class="font_2">링크 첨부 (선택)</div>
             <div class="frame_141">
@@ -43,19 +44,52 @@
                 <input type="number" name="price" class="font_3" placeholder="가격을 입력해주세요">
             </div>
         </div>
-
-        <div class="frame_144">
-            <div class="font_2">이미지</div>
-            <div class="frame_141">
-                <input type="file" name="image" accept="image/*" required>
-            </div>
-        </div>
     </div>
 </div>
+
 
 {% endblock %}
 
 {% block btn %}
 <button type="submit" class="btn">등록하기</button>
 </form>
+
+<script>
+    const frame = document.getElementById('imagePreviewFrame');
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const imagePlaceholder = document.getElementById('imagePlaceholder');
+    const btn = document.querySelector('.btn');
+    const nameInput = document.querySelector('input[name="product_name"]');
+
+    frame.addEventListener('click', () => imageInput.click());
+
+    imageInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block';
+            imagePlaceholder.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+        checkAllFilled();
+    });
+
+    nameInput.addEventListener('input', checkAllFilled);
+
+    function checkAllFilled() {
+        const nameOk = nameInput.value.trim() !== '';
+        const imageOk = imageInput.files.length > 0;
+
+        if (nameOk && imageOk) {
+            btn.classList.add('btn-active');
+        } else {
+            btn.classList.remove('btn-active');
+        }
+    }
+</script>
+
 {% endblock %}

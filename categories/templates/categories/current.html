@@ -1,0 +1,185 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/current.css' %}">
+
+<div class="rectangle_9">
+
+    <div class="pretendard">
+        보관함 현황
+    </div>
+
+    <a href="{% url 'accounts:mypage' %}" class="vector">
+        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+            <path d="M20.625 26.125L11 16.5L20.625 6.875"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+        </svg>
+    </a>
+
+    <div class="edit">
+        편집
+    </div>
+
+    <img src="{% static 'images/모코.png' %}" alt="모코" class="moco">
+
+    <div class="t1">
+        {{ nickname }}의 <span style="color: black;">보관함에는</span><br>
+        <span class="t2">{{ total_items_count }}</span> 개의 아이템<span style="color: black;">이 있어요!</span>
+    </div>
+
+    <div class="frame_173">
+
+        {% for category in categories %}
+        <div class="frame_170">
+
+            <div class="frame_161">
+
+                <div class="frame_160">
+
+                    <div class="frame_159">
+
+                        {% if forloop.counter0|divisibleby:3 %}
+                            <img src="{% static 'images/blue.png' %}" class="icon_1">
+                        {% elif forloop.counter|divisibleby:3 %}
+                            <img src="{% static 'images/green.png' %}" class="icon_1">
+                        {% else %}
+                            <img src="{% static 'images/pink.png' %}" class="icon_1">
+                        {% endif %}
+
+                        {{ category.name }}
+
+                        <div class="frame_162">
+                            {{ category.item_count }}개
+                        </div>
+
+                    </div>
+
+                    <svg class="right"
+                         xmlns="http://www.w3.org/2000/svg"
+                         width="9"
+                         height="16"
+                         viewBox="0 0 9 16"
+                         fill="none">
+                        <path d="M1 15L8 8L1 1"
+                              stroke="#A4A8AB"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+        <form id="addCategoryForm" method="POST" style="display:none; width:100%;">
+
+            {% csrf_token %}
+
+            <div class="frame_170">
+
+                <div class="frame_161">
+
+                    <div class="frame_160">
+
+                        <div class="frame_159">
+
+                            <img src="{% static 'images/green.png' %}" class="icon_1">
+
+                            <input class="frame_168"
+                                type="text"
+                                name="name"
+                                class="category_input"
+                                placeholder="텍스트를 입력하세요"
+                                maxlength="4"
+                                oninput="document.getElementById('count').textContent=this.value.length+'/4'"
+                                required
+                            >
+
+                            <div class="count" id="count">
+                                0/4
+                            </div>
+
+                        </div>
+
+                        <svg onclick="hideAddCategory()"
+                        style="cursor:pointer;"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="19"
+                        viewBox="0 0 17 19"
+                        fill="none">
+
+                        <path d="M5.20833 0V1.04167H0V3.125H1.04167V16.6667C1.04167 17.2192 1.26116 17.7491 1.65186 18.1398C2.04256 18.5305 2.57247 18.75 3.125 18.75H13.5417C14.0942 18.75 14.6241 18.5305 15.0148 18.1398C15.4055 17.7491 15.625 17.2192 15.625 16.6667V3.125H16.6667V1.04167H11.4583V0H5.20833ZM3.125 3.125H13.5417V16.6667H3.125V3.125ZM5.20833 5.20833V14.5833H7.29167V5.20833H5.20833ZM9.375 5.20833V14.5833H11.4583V5.20833H9.375Z"
+                        fill="#858585"/>
+                        </svg>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="submit" class="frame_151">
+                완료
+            </button>
+
+        </form>
+
+
+        <div id="addCategoryBtn" class="frame_166" onclick="showAddCategory()">
+
+            <div class="frame_165">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M16.0001 26.8801C9.98412 26.8801 5.12012 22.0161 5.12012 16.0001C5.12012 9.98412 9.98412 5.12012 16.0001 5.12012C22.0161 5.12012 26.8801 9.98412 26.8801 16.0001C26.8801 22.0161 22.0161 26.8801 16.0001 26.8801ZM16.0001 6.40012C10.6881 6.40012 6.40012 10.6881 6.40012 16.0001C6.40012 21.3121 10.6881 25.6001 16.0001 25.6001C21.3121 25.6001 25.6001 21.3121 25.6001 16.0001C25.6001 10.6881 21.3121 6.40012 16.0001 6.40012Z" fill="#43A4DB"/>
+                <path d="M10.24 15.3599H21.76V16.6399H10.24V15.3599Z" fill="#43A4DB"/>
+                <path d="M15.3601 10.2402H16.6401V21.7602H15.3601V10.2402Z" fill="#43A4DB"/>
+                </svg>
+
+                <span class="t3">카테고리 추가</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+function showAddCategory() {
+    document.getElementById('addCategoryForm').style.display = 'block';
+    document.getElementById('addCategoryBtn').style.display = 'none';
+}
+
+function hideAddCategory() {
+    const form = document.getElementById('addCategoryForm');
+
+    form.style.display = 'none';
+    document.getElementById('addCategoryBtn').style.display = 'flex';
+    form.reset();
+    document.getElementById('count').textContent = '0/4';
+}
+
+document.getElementById('addCategoryForm')
+.addEventListener('submit', async function(e) {
+    e.preventDefault(); // 페이지 이동 막기
+
+    const form = this;
+    const formData = new FormData(form);
+
+    const response = await fetch("{% url 'categories:create' %}", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        location.reload(); // 현재 페이지만 새로고침
+    }
+});
+</script>

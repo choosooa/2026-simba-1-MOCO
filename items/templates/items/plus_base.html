@@ -6,30 +6,28 @@
 
 <div class="rectangle_8">
 
-    <div class="add">
-    추가하기
-    </div>
+    <div class="add">추가하기</div>
 
     <div class="pointer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
-    <path d="M20.625 26.125L11 16.5L20.625 6.875" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+            <path d="M20.625 26.125L11 16.5L20.625 6.875" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
     </div>
-     <img src="{% static 'images/image1.png' %}" alt="모코" width="76" class="image1" >
 
-    <div class="frame_129">
-        <div class="frame_128">
-            
+    <img src="{% static 'images/image1.png' %}" alt="모코" width="76" class="image1">
+
+    <div class="frame_129" id="imagePreviewFrame">
+        <div class="frame_128" id="imagePlaceholder">
+            <span class="placeholder-text">이미지를 추가해주세요</span>
         </div>
+        <img id="imagePreview" src="" alt="미리보기" style="display:none;">
     </div>
 
     {% block content %}
     {% endblock %}
-    
+
     {% block btn %}
-    <div class="btn">
-        다음
-    </div>
+    <div class="btn">다음</div>
     {% endblock %}
 
 </div>

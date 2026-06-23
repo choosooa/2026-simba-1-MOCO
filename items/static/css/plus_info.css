@@ -6,6 +6,7 @@
     cursor: pointer;
     width: 100%;
     padding: 14px 0;
+    margin-top: 25px;
 }
 
 .frame_148 {
@@ -15,6 +16,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 16px;
+    margin-top: -10px;
 }
 
 .frame_143 {
@@ -59,7 +61,6 @@
     width: 100%;
 }
 
-/* select 스타일 */
 select.frame_149 {
     width: 100%;
     height: 100%;
@@ -116,7 +117,6 @@ select.frame_149 {
     background: #FFF;
 }
 
-/* input 스타일 */
 .frame_141 input {
     width: 100%;
     border: none;
@@ -135,7 +135,6 @@ select.frame_149 {
     font-weight: 600;
 }
 
-/* file input */
 .frame_141 input[type="file"] {
     color: #C8C8C8;
     font-size: 13px;
@@ -156,4 +155,10 @@ select.frame_149 {
     font-family: Pretendard;
     font-size: 10px;
     font-weight: 500;
+}
+
+
+.btn-active {
+    background: linear-gradient(180deg, rgba(131, 229, 244, 0.85) 0%, rgba(43, 140, 192, 0.85) 100%);
+    box-shadow: 0 3px 10px 0 rgba(255, 255, 255, 0.80), 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 }

@@ -15,5 +15,5 @@ urlpatterns = [
     path('main/', main, name='main'),
     path('plus_info/', plus_info, name='plus_info'),
     path('plus/', plus, name='plus'),
-    path('product/', product, name='product'),
+    path('detail/<int:item_id>/', detail, name='detail'),
 ]
