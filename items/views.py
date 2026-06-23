@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from categories.models import Category
+from django.utils import timezone
 
 def storage(request):
     if not request.user.is_authenticated:
@@ -120,7 +121,28 @@ def delete(request, item_id):
     return redirect('items:storage')
 
 def main(request):
-    return render(request, 'items/main.html')
+    if not request.user.is_authenticated:
+        return redirect('accounts:login')
+    
+    items = Item.objects.filter(
+        owner_user=request.user,
+        is_deleted=False
+    ).order_by('-created_at')
+
+    recent_items = items[:3]
+
+    today_count = Item.objects.filter(
+        owner_user=request.user,
+        is_deleted=False,
+        created_at__date=timezone.localdate()
+    ).count()
+
+    return render(request, 'items/main.html', {
+        'items': items,
+        'recent_items': recent_items,
+        'today_count': today_count,
+        'nickname': request.user.profile.nickname,
+    })
 
 def plus(request):
     return render(request, 'items/plus.html')
