@@ -105,7 +105,7 @@ width: 216px;
 height: 182px;
 aspect-ratio: 108/91;
 
-background: url('/static/images/image1.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image1.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -677,4 +677,14 @@ font-size: 14px;
 font-style: normal;
 font-weight: 500;
 line-height: 23px; /* 164.286% */
+}
+
+.home-btn img {
+position: absolute;
+top: 70px;
+right: 37px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
 }

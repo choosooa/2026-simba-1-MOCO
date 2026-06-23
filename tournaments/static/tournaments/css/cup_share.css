@@ -96,7 +96,7 @@ width: 144px;
 height: 122px;
 aspect-ratio: 72/61;
 
-background: url('/static/images/image1.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image1.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 

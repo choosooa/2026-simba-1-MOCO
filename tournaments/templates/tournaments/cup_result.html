@@ -8,6 +8,12 @@
 
 {% block content %}
 
+{% if not is_shared %}
+<a href="{% url 'items:main' %}" class="home-btn">
+    <img src="{% static 'tournaments/icons/material-symbols_home-rounded.svg' %}" alt="홈">
+</a>
+{% endif %}
+
 {% if is_shared %}
 <a href="{% url 'accounts:login' %}" class="Frame187">
     <div class="Frame186">

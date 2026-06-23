@@ -7,6 +7,14 @@
 
 {% block content %}
 
+<a href="{% url 'tournaments:result' %}" class="back-btn">
+    <img src="{% static 'tournaments/icons/chevron-left.svg' %}" alt="뒤로가기">
+</a>
+
+<a href="{% url 'items:main' %}" class="home-btn">
+    <img src="{% static 'tournaments/icons/material-symbols_home-rounded.svg' %}" alt="홈">
+</a>
+
 <div class="Frame134">
     <div class="Frame133">
         <div class="moa_img"></div>
