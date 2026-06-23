@@ -96,7 +96,7 @@ width: 144px;
 height: 122px;
 aspect-ratio: 72/61;
 
-background: url('/static/images/image1.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image1.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -156,14 +156,14 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 5.761px;
+flex: 1 0 0;
 }
 
 .Frame1 {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 gap: 9.602px;
-align-self: stretch;
 
 color: #000;
 font-family: Pretendard;
@@ -189,8 +189,9 @@ line-height: normal;
 
 .image10 {
 height: 35.163px;
-flex: 1 0 0;
+width: 37.76px;
 aspect-ratio: 37.76/35.16;
+flex-shrink: 0;
 }
 
 /* 도전 텍스트 */

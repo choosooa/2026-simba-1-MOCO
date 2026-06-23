@@ -13,7 +13,7 @@
         <div class="Frame123">
             <p class="moa_label">모아컵</p>
             <div class="Frame122">
-                <p class="sharer_name">{{ sharer.username }}님의</p>
+                <p class="sharer_name">{{ sharer.profile.nickname }}님의</p>
                 <p class="share_title">모아컵을 공유받았어요!</p>
             </div>
         </div>
@@ -23,7 +23,11 @@
     <div class="product_content">
         <div class="Frame8">
             <div class="Frame7">
-                <div class="Rectangle34"></div>
+                {% if winner_item.image %}
+                    <img src="{{ winner_item.image.url }}" alt="{{ winner_item.product_name }}" class="Rectangle34">
+                {% else %}
+                    <div class="Rectangle34"></div>
+                {% endif %}
             </div>
             <div class="Frame5">
                 <div class="Frame3">
@@ -44,7 +48,7 @@
     <div class="moa_talk">
         <div class="Frame37">
             <div class="Frame30">
-                <img src="{% static 'tournaments/images/image11.png' %}" alt="말풍선" class="image11">
+                <img src="{% static 'images/clarity_talk-bubbles-solid.svg' %}" alt="말풍선" class="moa-talk">
             </div>
             <div class="Frame36">
                 <div class="Frame31">모아의 한마디</div>

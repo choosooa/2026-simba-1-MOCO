@@ -7,6 +7,10 @@
 
 {% block content %}
 
+<a href="{% url 'tournaments:main' %}" class="back-btn">
+    <img src="{% static 'tournaments/icons/chevron-left.svg' %}" alt="뒤로가기">
+</a>
+
 <form method="post" action="{% url 'tournaments:create' %}">
     {% csrf_token %}
 

@@ -1,6 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="rectangle_9">
     <div class="frame_86">
         <img src="{% static 'images/moco.png' %}" alt="모코" width="263" class="moco">
@@ -41,5 +46,7 @@
         </div>
     </div>
 </div>
-
 <script src="{% static 'js/login.js' %}"></script>
+
+{% endblock %}
+

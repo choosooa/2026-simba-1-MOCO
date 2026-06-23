@@ -1,6 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/terms.css' %}">
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/terms.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="rectangle_8">
 
 <div class="pretendard">
@@ -15,42 +20,66 @@
 
 <div class="line_1"></div>
 
-<div class="terms_box">
+<div class="terms_box" id="termsBox">
 <p class="text">
 제 1조 (목적)<br/>
-이 약관은 모코(Moco)가 제공하는 서비스의 이용과 관련하어 모코와 회원 간의 권리, 의무 및 책임사항 동을 규정함을 목적으로 합니다.<br/>
-<br/>
+1. 이 약관은 모코(Moco)가 제공하는 서비스의 이용과 관련하여 모코와 회원 간의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다.<br/><br/>
+
 제 2조 (정의)<br/>
 1. 서비스란 모코가 제공하는 모든 서비스를 의미합니다.<br/>
-2. 회원이란 모코와 서비스 이용 계약을 체절한 자를 의미합니다.<br/>
-<br/>
+2. 회원이란 모코와 서비스 이용 계약을 체결한 자를 의미합니다.<br/><br/>
+
 제 3조 (이용계약의 성립)<br/>
-1. 회원가입 선청 후 모코의 승낙으로 이용계약이 성립합니다.<br/>
-2. 모코는 상한 경우 회원가입을 거절할 수 있습니다.<br/>
-<br/>
+1. 회원가입 신청 후 모코의 승낙으로 이용 계약이 성립합니다.<br/>
+2. 모코는 상당한 사유가 있는 경우 회원가입을 거절할 수 있습니다.<br/><br/>
+
 제 4조 (회원의 의무)<br/>
 1. 회원은 타인의 권리를 침해하거나 불법적인 행위를 해서는 안 됩니다.<br/>
 2. 회원은 본인의 계정 정보를 안전하게 관리해야 합니다.<br/>
-(이하 생략)<br/>
-<br/>
+
 1. 수집하는 개인정보 항목<br/>
-- 아이디, 비밀번호, 닉네임, 서비스 이용 기록, 
-  기기 정보<br/>
-<br/>
+1. 아이디, 비밀번호, 닉네임, 서비스 이용 기록, 기기 정보를 수집합니다.<br/><br/>
+
 2. 개인정보 수집 및 이용 목적<br/>
-- 회원 관리, 서비스 제공, 고객 문의 응대, 
-  서비스 개선 동<br/>
-<br/>
+1. 회원 관리, 서비스 제공, 고객 문의 응대 및 서비스 개선을 목적으로 개인정보를 수집·이용합니다.<br/><br/>
+
 3. 개인정보 보유 및 이용 기간<br/>
-- 회원 탈퇴 서까지 또는 관계 법령에 따라 
-  보관이 필요한 경우 그 기간까지<br/>
-<br/>
+1. 회원 탈퇴 시까지 또는 관계 법령에 따라 보관이 필요한 경우 해당 기간까지 개인정보를 보유 및 이용합니다.<br/><br/>
+
 4. 동의 거부 권리 및 불이익<br/>
-- 귀하는 개인정보 수집 및 이용에 대해 동의를 
-   거부할 수 있으며, 동의 거부 시 서비스 
-   이용이 제한될 수 있습니다.<br/>
+1. 귀하는 개인정보 수집 및 이용에 대해 동의를 거부할 수 있습니다.<br/>
+2. 다만, 동의를 거부할 경우 서비스 이용이 제한될 수 있습니다.<br/><br/>
+
 (이하 생략)
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </p>
 </div>
+
+<div class="rectangle_35">
+ <button
+    id="agreeBtn"
+    class="btn"
+    disabled
+    onclick="location.href='{% url 'accounts:signup' %}'">
+    동의
+</button>
+
 </div>
+</div>
+
+<script>
+const termsBox = document.getElementById('termsBox');
+const agreeBtn = document.getElementById('agreeBtn');
+
+termsBox.addEventListener('scroll', () => {
+    const isBottom =
+        termsBox.scrollTop + termsBox.clientHeight >=
+        termsBox.scrollHeight - 1;
+
+    if (isBottom) {
+        agreeBtn.disabled = false;
+        agreeBtn.classList.add('active');
+    }
+});
+</script>
+
+{% endblock %}

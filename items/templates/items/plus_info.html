@@ -5,20 +5,34 @@
 <link rel="stylesheet" href="{% static 'css/plus_info.css' %}">
 {% endblock %}
 
-{% block content %}
+{% block plus_content %}
 <form method="POST" action="{% url 'items:create' %}" enctype="multipart/form-data">
 {% csrf_token %}
 
-<div class="frame_148">
+<input type="file" id="imageInput" name="image" accept="image/*" required style="display:none;">
 
+<div class="frame_148">
     <div class="frame_143">
         <div class="font_2">카테고리</div>
-
         <div class="frame_142">
-            <select name="category" id="category-select" class="frame_149">
-                
+                {% if selected_category %}
+        {% if selected_category.name == '패션' %}
+            <img src="{% static 'images/image25.png' %}" class="icon_1">
+        {% elif selected_category.name == '뷰티' %}
+            <img src="{% static 'images/image26.png' %}" class="icon_1">
+        {% elif selected_category.name == '라이프' %}
+            <img src="{% static 'images/image27.png' %}" class="icon_1">
+        {% elif selected_category.name == '기타' %}
+            <img src="{% static 'images/image28.png' %}" class="icon_1">
+        {% else %}
+            <img src="{% static 'images/image31.png' %}" class="icon_1">
+        {% endif %}
+            {% endif %}
+
+            <select name="category" class="frame_149">
                 {% for cat in categories %}
-                <option value="{{ cat.id }}">
+                 {{cat.image}}
+                <option value="{{ cat.id }}" {% if cat.id == selected_category.id %}selected{% endif %}>
                     {{ cat.name }}
                 </option>
                 {% endfor %}
@@ -27,79 +41,72 @@
     </div>
 
     <div class="frame_147">
-
         <div class="frame_144">
             <div class="font_2">아이템 이름</div>
-
             <div class="frame_141">
-                <input
-                    type="text"
-                    name="product_name"
-                    class="font_3"
-                    placeholder="이름을 입력해주세요"
-                    required
-                >
+                <input type="text" name="product_name" class="font_3" placeholder="이름을 입력해주세요" required>
             </div>
         </div>
 
         <div class="frame_144">
             <div class="font_2">링크 첨부 (선택)</div>
-
             <div class="frame_141">
-                <input
-                    type="text"
-                    name="product_url"
-                    class="font_3"
-                    placeholder="링크를 입력해주세요"
-                >
+                <input type="text" name="product_url" class="font_3" placeholder="링크를 입력해주세요">
             </div>
         </div>
 
         <div class="frame_144">
             <div class="font_2">가격 (선택)</div>
-
             <div class="frame_141">
-                <input
-                    type="number"
-                    name="price"
-                    class="font_3"
-                    placeholder="가격을 입력해주세요"
-                >
+                <input type="number" name="price" class="font_3" placeholder="가격을 입력해주세요">
             </div>
         </div>
-
-        <div class="frame_144">
-            <div class="font_2">이미지</div>
-
-            <div class="frame_141">
-                <input
-                    type="file"
-                    name="image"
-                    accept="image/*"
-                    required
-                >
-            </div>
-        </div>
-
     </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const categoryId = params.get('category');
-
-    if (categoryId) {
-        document.getElementById('category-select').value = categoryId;
-    }
-});
-</script>
 
 {% endblock %}
 
 {% block btn %}
-<button type="submit" class="btn">
-    등록하기
-</button>
+<button type="submit" class="btn">등록하기</button>
 </form>
+
+<script>
+    const frame = document.getElementById('imagePreviewFrame');
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const imagePlaceholder = document.getElementById('imagePlaceholder');
+    const btn = document.querySelector('.btn');
+    const nameInput = document.querySelector('input[name="product_name"]');
+
+    frame.addEventListener('click', () => imageInput.click());
+
+    imageInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block';
+            imagePlaceholder.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+        checkAllFilled();
+    });
+
+    nameInput.addEventListener('input', checkAllFilled);
+
+    function checkAllFilled() {
+        const nameOk = nameInput.value.trim() !== '';
+        const imageOk = imageInput.files.length > 0;
+
+        if (nameOk && imageOk) {
+            btn.classList.add('btn-active');
+        } else {
+            btn.classList.remove('btn-active');
+        }
+    }
+</script>
+
 {% endblock %}

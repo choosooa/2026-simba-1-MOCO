@@ -105,7 +105,7 @@ width: 216px;
 height: 182px;
 aspect-ratio: 108/91;
 
-background: url('/static/images/image1.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image1.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -202,25 +202,25 @@ gap: 9.602px;
 .Rectangle34 {
 width: 66.284px;
 height: 61.865px;
-
 border-radius: 17.676px;
 border: 0.884px solid #D3D3D3;
+object-fit: cover;
 }
 
 .Rectangle34_2 {
 width: 75px;
 height: 70px;
-
 border-radius: 20px;
 border: 1px solid #D3D3D3;
+object-fit: cover;
 }
 
 .Rectangle34_shared {
 width: 72.018px;
 height: 67.217px;
-
 border-radius: 19.205px;
 border: 0.96px solid #D3D3D3;
+object-fit: cover;
 }
 
 .Frame5 {
@@ -253,6 +253,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 5.303px;
+flex: 1 0 0;
 }
 
 .Frame3_2 {
@@ -268,14 +269,14 @@ flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 gap: 5px;
+flex: 1 0 0;
 }
 
 .Frame1 {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 gap: 8.838px;
-align-self: stretch;
 
 color: #000;
 font-family: Pretendard;
@@ -318,7 +319,7 @@ line-height: normal;
 
 .Frame2 {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 gap: 8.838px;
 
@@ -346,7 +347,7 @@ line-height: normal;
 
 .Frame2_shared {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 gap: 9.602px;
 
@@ -360,10 +361,9 @@ line-height: normal;
 
 .Frame4_shared {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 gap: 9.602px;
-align-self: stretch;
 
 color: #000;
 font-family: Pretendard;
@@ -375,14 +375,16 @@ line-height: normal;
 
 .image10 {
 height: 32.366px;
-flex: 1 0 0;
+width: 34.76px;
 aspect-ratio: 34.76/32.37;
+flex-shrink: 0;
 }
 
 .image10_shared {
 height: 35.163px;
-flex: 1 0 0;
+width: 37.76px;
 aspect-ratio: 37.76/35.16;
+flex-shrink: 0;
 }
 
 .Frame132 {
@@ -677,4 +679,14 @@ font-size: 14px;
 font-style: normal;
 font-weight: 500;
 line-height: 23px; /* 164.286% */
+}
+
+.home-btn img {
+position: absolute;
+top: 70px;
+right: 37px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
 }

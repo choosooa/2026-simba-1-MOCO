@@ -1,31 +1,61 @@
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/plus_base.css' %}">
 
-{% block css %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/plus_base.css' %}">
+{% block css %}{% endblock %}
 {% endblock %}
 
+{% block content %}
 <div class="rectangle_8">
 
     <div class="add">
-    추가하기
+        추가하기
     </div>
 
-    <div class="pointer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
-    <path d="M20.625 26.125L11 16.5L20.625 6.875" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <div class="pointer" onclick="history.back()" style="cursor:pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="33"
+             height="33"
+             viewBox="0 0 33 33"
+             fill="none">
+            <path d="M20.625 26.125L11 16.5L20.625 6.875"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+        </svg>
     </div>
-     <img src="{% static 'images/image1.png' %}" alt="모코" width="76" class="image1" >
 
-    <div class="frame_129">
-        <div class="frame_128">
-            
-        </div>
+    <img src="{% static 'images/image1.png' %}"
+         alt="모코"
+         width="76"
+         class="image1">
+
+    <div class="frame_129" id="imagePreviewFrame">
+
+    <div class="frame_128" id="imagePlaceholder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
+        <path d="M32.4998 21.6666C26.6228 21.6666 21.6665 26.6229 21.6665 32.5C21.6665 38.377 26.6228 43.3333 32.4998 43.3333C38.3769 43.3333 43.3332 38.377 43.3332 32.5C43.3332 26.6229 38.3769 21.6666 32.4998 21.6666ZM32.4998 37.9166C29.6019 37.9166 27.0832 35.3979 27.0832 32.5C27.0832 29.602 29.6019 27.0833 32.4998 27.0833C35.3978 27.0833 37.9165 29.602 37.9165 32.5C37.9165 35.3979 35.3978 37.9166 32.4998 37.9166Z" fill="#CCDAE1"/>
+        <path d="M54.1665 13.5417H47.1519L39.8123 6.20209C39.5592 5.95108 39.2591 5.75249 38.9291 5.61771C38.5992 5.48293 38.2458 5.41461 37.8894 5.41667H27.0561C26.3248 5.41667 25.6477 5.71459 25.1331 6.20209L17.7936 13.5417H10.779C7.7998 13.5417 5.3623 15.9792 5.3623 18.9583V48.75C5.3623 51.7292 7.7998 54.1667 10.779 54.1667H54.1123C57.0915 54.1667 59.529 51.7292 59.529 48.75V18.9583C59.529 15.9792 57.0915 13.5417 54.1123 13.5417H54.1665ZM54.1665 48.75H10.8331V18.9583H18.9581C19.6894 18.9583 20.3665 18.6604 20.8811 18.1729L28.2206 10.8333H36.8061L44.1456 18.1729C44.6602 18.6875 45.3373 18.9583 46.0686 18.9583H54.1936V48.75H54.1665Z" fill="#CCDAE1"/>
+        </svg>
+        <span class="placeholder-text">
+            사진을 업로드 해주세요
+        </span>
     </div>
 
-    {% block content %}
+    <img
+        id="imagePreview"
+        src=""
+        alt="미리보기"
+        style="display:none;"
+    >
+
+</div>
+
+    {% block plus_content %}
     {% endblock %}
-    
+
     {% block btn %}
     <div class="btn">
         다음
@@ -33,3 +63,4 @@
     {% endblock %}
 
 </div>
+{% endblock %}

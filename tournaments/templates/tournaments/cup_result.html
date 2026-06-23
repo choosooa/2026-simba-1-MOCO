@@ -8,6 +8,12 @@
 
 {% block content %}
 
+{% if not is_shared %}
+<a href="{% url 'items:main' %}" class="home-btn">
+    <img src="{% static 'tournaments/icons/material-symbols_home-rounded.svg' %}" alt="홈">
+</a>
+{% endif %}
+
 {% if is_shared %}
 <a href="{% url 'accounts:login' %}" class="Frame187">
     <div class="Frame186">
@@ -41,12 +47,16 @@
         <div class="product_content_shared">
             <div class="Frame8_shared">
                 <div class="Frame7_shared">
-                    <div class="Rectangle34_shared"></div>
+                    {% if original_winner_item.image %}
+                        <img src="{{ original_winner_item.image.url }}" alt="{{ original_winner_item.product_name }}" class="Rectangle34_shared">
+                    {% else %}
+                        <div class="Rectangle34_shared"></div>
+                    {% endif %}
                 </div>
                 <div class="Frame5_shared">
                     <div class="Frame3_shared">
                         <div class="Frame1_shared">
-                            {{ share_user.username }}의 우승 아이템
+                            {{ share_user.profile.nickname }}의 우승 아이템
                         </div>
                         <div class="Frame4_shared">
                             {{ original_winner_item.product_name }}
@@ -63,7 +73,11 @@
         <div class="product_content_shared">
             <div class="Frame8_shared">
                 <div class="Frame7_shared">
-                    <div class="Rectangle34_shared"></div>
+                    {% if winner_item.image %}
+                        <img src="{{ winner_item.image.url }}" alt="{{ winner_item.product_name }}" class="Rectangle34_shared">
+                    {% else %}
+                        <div class="Rectangle34_shared"></div>
+                    {% endif %}
                 </div>
                 <div class="Frame5_shared">
                     <div class="Frame3_shared">
@@ -101,7 +115,11 @@
     <div class="product_content">
         <div class="Frame8">
             <div class="Frame7">
-                <div class="Rectangle34"></div>
+                {% if winner_item.image %}
+                    <img src="{{ winner_item.image.url }}" alt="{{ winner_item.product_name }}" class="Rectangle34">
+                {% else %}
+                    <div class="Rectangle34"></div>
+                {% endif %}
             </div>
             <div class="Frame5">
                 <div class="Frame3">
@@ -136,7 +154,11 @@
     <div class="product_content_2">
         <div class="Frame8_2">
             <div class="Frame7_2">
-                <div class="Rectangle34_2"></div>
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.product_name }}" class="Rectangle34_2">
+                {% else %}
+                    <div class="Rectangle34_2"></div>
+                {% endif %}
             </div>
             <div class="Frame5_2">
                 <div class="Frame3_2">

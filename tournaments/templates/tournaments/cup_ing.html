@@ -7,6 +7,10 @@
 
 {% block content %}
 
+<a href="{% url 'tournaments:create' %}" class="back-btn">
+    <img src="{% static 'tournaments/icons/chevron-left.svg' %}" alt="뒤로가기">
+</a>
+
 <div class="Frame81">
     <div class="Frame80">
         <div class="Frame79">
@@ -23,7 +27,7 @@
                 </div>
 
                 <div class="group1">
-                    <div class="Frame71">{{ current_match_number }}/{{ total_match_count }} 경기</div>
+                    <div class="Frame71">{{ current_match_no }}/{{ total_matches }} 경기</div>
                 </div>
             </div>
         </div>
@@ -46,22 +50,24 @@
 <img src="{% static 'tournaments/images/image8.png' %}" alt="" class="image8">
 <img src="{% static 'tournaments/images/image9.png' %}" alt="" class="image9">
 
-<form method="POST" action="{% url 'tournaments:play' tournament.pk %}" id="match-form">
+<form method="POST" action="{% if is_shared %}{% url 'tournaments:shared_play' tournament.share_token %}{% else %}{% url 'tournaments:play' tournament.pk %}{% endif %}" id="match-form">
     {% csrf_token %}
+
+    {% if not is_shared %}<input type="hidden" name="match_id" value="{{ match_id }}">{% endif %}
     <input type="hidden" name="winner_item_id" id="winner-item-id">
 
     <div class="Frame82">
         <button type="button" class="vs_product" id="card-left" data-item-id="{{ left_item.id }}">
             <div class="Frame29">
                 {% if left_item.image %}
-                    <img src="{{ left_item.image.url }}" alt="{{ left_item.name }}" class="Rectangle19">
+                    <img src="{{ left_item.image.url }}" alt="{{ left_item.product_name }}" class="Rectangle19">
                 {% else %}
                     <div class="Rectangle19"></div>
                 {% endif %}
 
                 <div class="Frame28">
                     <div class="Frame25">
-                        <div class="Frame27">{{ left_item.name }}</div>
+                        <div class="Frame27">{{ left_item.product_name }}</div>
                     </div>
                     <div class="Frame26">
                         <div class="Frame27">약 {{ left_item.price }}원</div>
@@ -73,14 +79,14 @@
         <button type="button" class="vs_product" id="card-right" data-item-id="{{ right_item.id }}">
             <div class="Frame29">
                 {% if right_item.image %}
-                    <img src="{{ right_item.image.url }}" alt="{{ right_item.name }}" class="Rectangle19">
+                    <img src="{{ right_item.image.url }}" alt="{{ right_item.product_name }}" class="Rectangle19">
                 {% else %}
                     <div class="Rectangle19"></div>
                 {% endif %}
 
                 <div class="Frame28">
                     <div class="Frame25">
-                        <div class="Frame27">{{ right_item.name }}</div>
+                        <div class="Frame27">{{ right_item.product_name }}</div>
                     </div>
                     <div class="Frame26">
                         <div class="Frame27">약 {{ right_item.price }}원</div>

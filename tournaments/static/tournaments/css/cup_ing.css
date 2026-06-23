@@ -157,7 +157,7 @@ width: 128px;
 height: 108px;
 aspect-ratio: 32/27;
 
-background: url('/static/images/image24.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image24.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -226,7 +226,7 @@ width: 43px;
 height: 28px;
 aspect-ratio: 43/28;
 
-background: url('/static/images/image23.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image23.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 20px rgba(150, 241, 255, 0.80)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -269,13 +269,14 @@ align-self: stretch;
 
 /* 이미지 박스 */
 .Rectangle19 {
+width: 100%;
 height: 169px;
 align-self: stretch;
 border-radius: 20px;
 border: 1px solid #D3D3D3;
-
 background: rgba(255, 255, 255, 0.55);
 transition: box-shadow 0.2s ease, transform 0.2s ease;
+object-fit: cover;
 }
 
 /* 상품 정보 */
@@ -610,4 +611,14 @@ position: absolute;
 inset: 0;
 background: rgba(0, 0, 0, 0.45);
 z-index: 99;
+}
+
+.back-btn img {
+position: absolute;
+top: 70px;
+left: 32px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
 }

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
 
 from categories.models import Category
@@ -64,7 +65,7 @@ def tournament_main(request):
 
     tournaments = Tournament.objects.filter(user=request.user).order_by("-started_at")
 
-    return render(request, "cup_start.html", {"tournaments": tournaments})
+    return render(request, "tournaments/cup_start.html", {"tournaments": tournaments})
 
 
 # create
@@ -77,7 +78,7 @@ def tournament_create(request):
         my_categories = Category.objects.filter(creator=request.user)
         categories = default_categories | my_categories
 
-        return render(request, "cup_select.html", {"categories": categories, "size_choices": Tournament.SIZE_CHOICES})
+        return render(request, "tournaments/cup_select.html", {"categories": categories, "size_choices": Tournament.SIZE_CHOICES})
 
     category_id = request.POST["category"]
     tournament_size = int(request.POST["tournament_size"])
@@ -89,7 +90,14 @@ def tournament_create(request):
 
     # 선택한 N강보다 아이템 수가 적으면 생성 불가
     if items.count() < tournament_size:
-        return redirect("tournaments:create")
+        default_categories = Category.objects.filter(is_default=True)
+        my_categories = Category.objects.filter(creator=request.user)
+        categories = default_categories | my_categories
+        return render(request, "tournaments/cup_select.html", {
+            "categories": categories,
+            "size_choices": Tournament.SIZE_CHOICES,
+            "error": f"{tournament_size}강을 진행하려면 {tournament_size}개 이상의 아이템이 필요합니다."
+        })
 
     tournament = Tournament()
     tournament.user = request.user
@@ -188,12 +196,15 @@ def tournament_play(request, pk):
         round_no=tournament.current_round
     ).count()
 
-    return render(request, "cup_ing.html", { #프론트랑 이름 통일
-        "tournament": tournament,
-        "current_match": current_match,
-        "total_matches": total_matches,
-        "round_name": get_round_name(tournament.current_round),
-    })
+    return render(request, "tournaments/cup_ing.html", {
+    "tournament": tournament,
+    "left_item": current_match.left_item, 
+    "right_item": current_match.right_item,
+    "match_id": current_match.id,
+    "current_match_no": current_match.match_no,
+    "total_matches": total_matches,
+    "round_name": get_round_name(tournament.current_round)
+})
 
 
 def tournament_result(request, pk):
@@ -202,28 +213,25 @@ def tournament_result(request, pk):
 
     tournament = get_object_or_404(Tournament, pk=pk, user=request.user)
 
-    return render(request, "cup_result.html", {
+    return render(request, "tournaments/cup_result.html", {
         "tournament": tournament,
         "winner_item": tournament.winner_item,
         "eliminated_items": get_eliminated_items(tournament),
     })
 
 
-# 공유 링크 
-def generate_share_link(request, pk):
+# 공유 링크
+def tournament_link(request, pk):
     if not request.user.is_authenticated:
         return redirect("accounts:login")
 
     tournament = get_object_or_404(Tournament, pk=pk, user=request.user)
 
-    if request.method != "POST":
-        return redirect("tournaments:result", tournament.id)
-
     share_url = request.build_absolute_uri(
-        "/share/" + str(tournament.share_token) + "/"
+        reverse("tournaments:shared_intro", kwargs={"token": tournament.share_token})
     )
 
-    return render(request, "cup_result.html", {"tournament": tournament, "winner_item": tournament.winner_item, "share_url": share_url})
+    return render(request, "tournaments/cup_link.html", {"tournament": tournament, "share_url": share_url})
 
 
 # 다시하기
@@ -232,6 +240,16 @@ def tournament_restart(request, pk):
         return redirect("accounts:login")
 
     return redirect("tournaments:create")
+
+
+# 공유 링크 인트로 화면 / 비로그인 허용
+def shared_intro(request, token):
+    tournament = get_object_or_404(Tournament, share_token=token)
+    return render(request, "tournaments/cup_share.html", {
+        "tournament": tournament,
+        "sharer": tournament.user,
+        "winner_item": tournament.winner_item,
+    })
 
 
 # 공유 모아컵 참여 화면 / 비로그인 허용
@@ -267,7 +285,7 @@ def shared_play(request, token):
         winner_item = get_object_or_404(Item, pk=state["winner_item_id"])
         eliminated_items = Item.objects.filter(id__in=state["eliminated_items"])
 
-        return render(request, "cup_result.html", {
+        return render(request, "tournaments/cup_result.html", {
             "tournament": tournament,
             "winner_item": winner_item,
             "eliminated_items": eliminated_items,
@@ -331,7 +349,7 @@ def shared_play(request, token):
     left_item = get_object_or_404(Item, pk=left_item_id)
     right_item = get_object_or_404(Item, pk=right_item_id)
 
-    return render(request, "cup_ing.html", {
+    return render(request, "tournaments/cup_ing.html", {
         "tournament": tournament,
         "left_item": left_item,
         "right_item": right_item,
@@ -354,4 +372,4 @@ def tournament_record(request):
         winner_item__isnull=False
     ).select_related("winner_item", "category").order_by("-completed_at")
 
-    return render(request, "cup_record.html", {"results": results})
+    return render(request, "tournaments/cup_record.html", {"results": results})

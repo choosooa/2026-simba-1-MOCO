@@ -1,111 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
-{% endblock %}
-
-{% block content %}
-<div class="rectangle_9">
-
-    <div class="frame_110">
-        <div class="frame_107">
-            <div class="pretendard">
-                <span style="font-size: 35px;">안녕, {{ nickname }}!</span><br/>
-                오늘은 뭘 발견했어?
-            </div>
-        </div>
-        <div class="frame_109">
-            <div class="frame_108">
-                오늘은 {{ recent_items.count }}개 발견했어요
-            </div>
-        </div>
-    </div>
-
-    <a href="{% url 'tournaments:main' %}">
-        <img class="moco" src="{% static 'images/image3.png' %}" alt="모코">
-    </a>
-
-    <div class="frame_106">
-        위로 올려서 보관함 열기
-    </div>
-
-    <div class="rectangle_10">
-        <div class="rectangle_22"></div>
-        <div class="frame_104">
-            <div class="frame_102">
-                <div class="t1">최근저장</div>
-                <div class="t2">전체 보기</div>
-            </div>
-            <div class="frame_113">
-                {% for item in recent_items %}
-                <div class="recent_content">
-                    <div class="frame_13">
-                        <div class="frame_12">
-                            {{ item.category.name }}
-                        </div>
-                        <div class="frame_11">
-                            <div class="frame_9">
-                                {{ item.product_name }}
-                            </div>
-                            <div class="frame_10">
-                                {% if item.price %}
-                                ₩ {{ item.price|floatformat:0 }}
-                                {% else %}
-                                가격 미등록
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                <div class="recent_content">
-                    아직 저장된 아이템이 없어요
-                </div>
-                {% endfor %}
-            </div>
-        </div> 
-
-        <div class="expanded_view">
-            <div class="rectangle_28"> </div>
-            <div class="frame_115">
-                <div class="store">
-                    보관함
-                </div>
-                <div class="frame_117">
-                    0
-                </div>
-            </div>
-            <div class="frame_114">
-                
-            </div>
-            {% for item in items %}
-    <div class="product_content">
-        <div class="frame_8">
-            <div class="frame_7">
-            
-            </div>
-            <div class="frame_5">
-                <div class="frame_1">
-                {{ item.product_name }}
-                </div>
-                <div class="frame_2">
-                {{ item.price }}
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-        </div>
-
-
-    </div>  
-
-    <div class="nav_bar">
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+ 
+ <div class="nav_bar">
             <div class="rectangle_23">
                 <div class="frame_24">
-                    <a href="{% url 'items:main' %}" class="frame_20">
+                    <div class="frame_20">
                         <div class="frame_19">
                             <div class="home">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
@@ -120,7 +20,7 @@
                             </div>
                         </div>
                         <div class="frame_18">홈</div>
-                    </a>
+                    </div>
 
                     <a href="{% url 'items:plus' %}" class="frame_17">
                         <div class="frame_16">
@@ -131,7 +31,7 @@
                         <div class="frame_15">추가하기</div>
                     </a>
 
-                    <a href="{% url 'accounts:mypage' %}" class="frame_23">
+                    <div class="frame_23">
                         <div class="frame_22">
                             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
                             <path d="M16.5 2.83008C16.5 2.83008 7.21875 13.033 7.21875 20.2518C7.21875 25.9468 10.8049 29.533 16.5 29.533C22.1951 29.533 25.7812 25.9468 25.7812 20.2518C25.7812 13.033 16.5 2.83008 16.5 2.83008ZM17.5312 26.1814V24.6346C18.5565 24.6334 19.5395 24.2256 20.2644 23.5006C20.9894 22.7756 21.3972 21.7927 21.3984 20.7674H22.9453C22.9438 22.2028 22.3729 23.579 21.3579 24.594C20.3429 25.609 18.9667 26.1799 17.5312 26.1814Z" fill="url(#paint0_linear_366_929)"/>
@@ -144,39 +44,7 @@
                             </svg>
                         </div>
                         <div class="frame_21">마이</div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const sheet = document.querySelector(".rectangle_10");
-    const handle = document.querySelector(".rectangle_22");
-
-    let startY = 0;
-    let dragging = false;
-
-    handle.addEventListener("mousedown", (e) => {
-         e.stopPropagation();
-        dragging = true;
-        startY = e.clientY;
-    });
-
-    document.addEventListener("mousemove", (e) => {
-        if (!dragging) return;
-
-        const diff = startY - e.clientY;
-
-        if (diff > 80) sheet.classList.add("open");
-        if (diff < -80) sheet.classList.remove("open");
-    });
-
-    document.addEventListener("mouseup", () => {
-        dragging = false;
-    });
-});
-</script>
-
-{% endblock %}

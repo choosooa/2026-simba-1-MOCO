@@ -34,7 +34,7 @@ width: 216px;
 height: 182px;
 aspect-ratio: 108/91;
 
-background: url('/static/images/image1.png') center / contain no-repeat;
+background: url('/static/tournaments/images/image1.png') center / contain no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -191,4 +191,24 @@ font-size: 19px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+}
+
+.back-btn img {
+position: absolute;
+top: 70px;
+left: 32px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
+}
+
+.home-btn img {
+position: absolute;
+top: 70px;
+right: 37px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
 }

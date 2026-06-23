@@ -17,7 +17,7 @@ width: 276px;
 height: 493px;
 flex-direction: column;
 align-items: center;
-gap: 63px;
+gap: 55px;
 }
 
 .Frame47 {
@@ -94,7 +94,7 @@ flex-shrink: 0;
 align-self: stretch;
 aspect-ratio: 69/58;
 
-background: url('/static/images/image1.png') -0.06px 0px / 103.601% 100% no-repeat;
+background: url('/static/tournaments/images/image1.png') -0.06px 0px / 103.601% 100% no-repeat;
 filter: drop-shadow(0 4px 30px #96F1FF);
 }
 
@@ -135,4 +135,14 @@ width: 306px;
 height: 69px;
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.13) 0%, rgba(0, 0, 0, 0.13) 100%), linear-gradient(180deg, rgba(131, 229, 244, 0.85) 0%, rgba(43, 140, 192, 0.85) 100%);
 box-shadow: 0 2px 10px 0 rgba(255, 255, 255, 0.60), 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.back-btn img {
+position: absolute;
+top: 70px;
+left: 32px;
+
+width: 33px;
+height: 33px;
+aspect-ratio: 1/1;
 }
