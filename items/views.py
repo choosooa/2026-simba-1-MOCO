@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from categories.models import Category
 from django.utils import timezone
+from django.db.models import Q
 
 def storage(request):
     if not request.user.is_authenticated:
@@ -136,11 +137,28 @@ def main(request):
     if not request.user.is_authenticated:
         return redirect('accounts:login')
     
+    categories = Category.objects.filter(
+        Q(is_default=True) | Q(creator=request.user)
+    ).distinct()
+    
     items = Item.objects.filter(
         owner_user=request.user,
         is_deleted=False
     ).order_by('-created_at')
+    
+    category_id = request.GET.get('category')
+    selected_category = None
+    
+    if category_id:
+        selected_category = get_object_or_404(
+            Category.objects.filter(Q(is_default=True) | Q(creator=request.user)),
+            pk=category_id
+        )
 
+        items = all_items.filter(category=selected_category)
+    else:
+        items = all_items
+        
     recent_items = items[:3]
 
     today_count = Item.objects.filter(
@@ -148,11 +166,23 @@ def main(request):
         is_deleted=False,
         created_at__date=timezone.localdate()
     ).count()
+    
+    total_count = items.count() 
+    
+    for category in categories:
+        category.item_count = Item.objects.filter(
+            owner_user=request.user,
+            category=category,
+            is_deleted=False
+        ).count()
 
     return render(request, 'items/main.html', {
         'items': items,
         'recent_items': recent_items,
         'today_count': today_count,
+        'total_count': total_count,
+        'categories': categories,
+        'selected_category': selected_category,
         'nickname': request.user.profile.nickname,
     })
     
